@@ -1,10 +1,14 @@
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import preactLogo from "./assets/preact.svg";
 import viteLogo from "/vite.svg";
 import "./app.css";
 
 export function App() {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log("Parent");
+  }, []);
 
   return (
     <>
@@ -28,6 +32,16 @@ export function App() {
       <p class="read-the-docs">
         Click on the Vite and Preact logos to learn more
       </p>
+
+      <Child />
     </>
   );
+}
+
+function Child() {
+  useEffect(() => {
+    console.log("Child");
+  }, []);
+
+  return <h1>Child</h1>;
 }
