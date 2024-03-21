@@ -8,7 +8,7 @@ export function App() {
 
   useEffect(() => {
     console.log("Parent inside effect");
-  }, []);
+  }, [count]);
 
   console.log("Parent outside effect");
   return (
@@ -34,15 +34,15 @@ export function App() {
         Click on the Vite and Preact logos to learn more
       </p>
 
-      <Child />
+      <Child count={count} />
     </>
   );
 }
 
-function Child() {
+function Child({ count }: { count: number }) {
   useEffect(() => {
     console.log("Child inside effect");
-  }, []);
+  }, [count]);
 
   console.log("Child outside effect");
 
