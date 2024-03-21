@@ -7,9 +7,10 @@ export function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log("Parent");
+    console.log("Parent inside effect");
   }, []);
 
+  console.log("Parent outside effect");
   return (
     <>
       <div>
@@ -40,8 +41,10 @@ export function App() {
 
 function Child() {
   useEffect(() => {
-    console.log("Child");
+    console.log("Child inside effect");
   }, []);
+
+  console.log("Child outside effect");
 
   return <h1>Child</h1>;
 }
